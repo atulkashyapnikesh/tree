@@ -1,5 +1,5 @@
-#include<bits/stdc++.h>
-using namesapce std;
+#include<iostream>
+#include<stdio.h>
 
 typedef struct node 
 {
@@ -10,10 +10,10 @@ typedef struct node
 	
 }node;
 
-   node *root=NULL;
+     node *root=NULL;
 
    void insert(int data){
-         node *temp=(node*)malloc(size(node));
+         node *temp=(node*)malloc(sizeof(node));
 
          temp->data=data;
          temp->right=NULL;
@@ -46,11 +46,13 @@ typedef struct node
 
  void print_in_preorder(node *Node){
  	node *temp=Node;
- 	if(temp!=NULL){
- 		cout<<temp->data<<" ";
+ 	if(!temp){
+ 		return;
+ 	}
+ 		printf("%d\n",temp->data );
  		print_in_preorder(temp->left);
  		print_in_preorder(temp->right);
- 	}
+ 	
  }
 
 
@@ -58,10 +60,10 @@ int main(int argc, char const *argv[])
 {
 
 	int n;
-	cin>>n;
+	scanf("%d",&n);
 	int a[n];
 	for(int i=0;i<n;i++)
-		cin>>a[i];
+		scanf("%d",&a[i]);
 	for(int i=0;i<n;i++)
 		insert(a[i]);
 	print_in_preorder(root);
